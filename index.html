@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse — o sinal vital do planeta, agora</title>
+<meta name="description" content="Terremotos, incêndios, tempestades e clima em tempo real, em qualquer lugar do mundo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <span class="brand-name">PULSE</span>
+  </div>
+
+  <svg id="waveform" viewBox="0 0 400 40" preserveAspectRatio="none">
+    <polyline id="waveline" points="" />
+  </svg>
+
+  <div class="counters">
+    <div class="counter"><span class="n" id="cQuake">–</span><span class="l">sismos 24h</span></div>
+    <div class="counter"><span class="n" id="cEvent">–</span><span class="l">eventos ativos</span></div>
+  </div>
+</header>
+
+<main id="map"></main>
+
+<div id="searchpill">
+  <input id="searchInput" type="text" placeholder="Buscar qualquer cidade ou país…" autocomplete="off">
+  <button id="searchBtn" aria-label="Buscar">→</button>
+  <div id="searchSuggestions"></div>
+</div>
+
+<button id="legendToggle" aria-label="Legenda">Legenda</button>
+<div id="legend">
+  <div class="litem"><span class="dot quake"></span> Terremoto (24h)</div>
+  <div class="litem"><span class="dot wildfire"></span> Incêndio</div>
+  <div class="litem"><span class="dot storm"></span> Tempestade severa</div>
+  <div class="litem"><span class="dot volcano"></span> Vulcão</div>
+  <div class="litem"><span class="dot other"></span> Outro evento natural</div>
+</div>
+
+<aside id="briefing">
+  <button id="closeBriefing" aria-label="Fechar">×</button>
+  <div id="briefingContent">
+    <div class="empty-state">
+      <p class="eyebrow">Briefing</p>
+      <h2>Clique num ponto do mapa ou busque um lugar</h2>
+      <p class="hint">Você vai ver o clima agora, atividade natural próxima e o que a mídia mundial está dizendo sobre aquele lugar neste momento.</p>
+    </div>
+  </div>
+</aside>
+
+<div id="loadingToast">Sincronizando sinais em tempo real…</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
